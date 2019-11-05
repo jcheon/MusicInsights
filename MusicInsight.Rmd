@@ -87,10 +87,10 @@ colnames(ratings)[colnames(ratings)=="What was your pseudonym?"] <- "pseudonym"
 
 ```{r}
 instruments <- tibble(pseudonym=survey$pseudonym,
-                      instruments=survey$instrument_list)
+                      instruments=survey$instrument)
 
 talents <- tibble(pseudonym=survey$pseudonym,
-                      instruments=survey$instrument_list)
+                      instruments=survey$instrument)
 
 talents <- separate_rows(talents, -pseudonym, sep=",")
 
@@ -119,10 +119,10 @@ We found that two people made mistakes when identifying their pseudonyms for the
 *Angel Angel* and *Mission Theory*. Let's filter out the latter submissions from those users.
 
 ```{r}
-earliest_time <- min(ratings$time_rated[ratings$pseudonym=="Angel Angel"])
-ratings <- ratings %>% filter(!(pseudonym=="Angel Angel" & time_rated!=earliest_time))
-earliest_time <- min(ratings$time_rated[ratings$pseudonym=="Mission Theory"])
-ratings <- ratings %>% filter(!(pseudonym=="Mission Theory" & time_rated!=earliest_time))
+#earliest_time <- min(ratings$time_rated[ratings$pseudonym=="Angel Angel"])
+#ratings <- ratings %>% filter(!(pseudonym=="Angel Angel" & time_rated!=earliest_time))
+#earliest_time <- min(ratings$time_rated[ratings$pseudonym=="Mission Theory"])
+#ratings <- ratings %>% filter(!(pseudonym=="Mission Theory" & time_rated!=earliest_time))
 ```
 
 
